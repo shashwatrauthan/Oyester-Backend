@@ -5,6 +5,7 @@ const {body, validationResult} = require('express-validator');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const getuser = require("../middleware/getuser");
+const nodemon = require('nodemon');
 
 JWT_SECRET = "shashwatsecret";
 
@@ -63,6 +64,7 @@ router.post('/login',[
     body('username').isLength(4),
     body('password').isLength(8),
 ],async (req,res)=>{
+
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
